@@ -1,16 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const apiKey = "355a77fec62e422bba1103052242609";
-    const city = "Chicago";
-    const weatherUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
-
-    const fetchWeatherData = async () => {
+    const fetchWeatherData = async (city, descriptionId, temperatureId, detailsId) => {
         try {
+            const apiKey = "355a77fec62e422bba1103052242609";
+            const weatherUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
+
             const response = await fetch(weatherUrl);
             const data = await response.json();
 
             // Update the temperature and description
-            document.getElementById("temperature").textContent = data.current.temp_c;
-            document.getElementById("weather-description").textContent = data.current.condition.text;
+            document.getElementById(temperatureId).textContent = data.current.temp_c;
+            document.getElementById(descriptionId).textContent = data.current.condition.text;
 
             // Additional weather details
             const weatherDetails = `
@@ -32,12 +31,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 </li>
             `;
 
-            document.getElementById("weather-details").innerHTML = weatherDetails;
+            document.getElementById(detailsId).innerHTML = weatherDetails;
         } catch (error) {
             console.error("Error fetching weather data:", error);
         }
     };
 
-    // Fetch weather data on page load
-    fetchWeatherData();
+    // Fetch weather data for Chicago and Lahore
+    fetchWeatherData("Chicago", "weather-description-chicago", "temperature-chicago", "weather-details-chicago");
+    fetchWeatherData("Lahore", "weather-description-lahore", "temperature-lahore", "weather-details-lahore");
 });
