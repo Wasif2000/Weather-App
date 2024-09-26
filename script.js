@@ -37,7 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // Fetch weather data for Chicago and Lahore
+    // Fetch weather data for Chicago, Lahore, and Karachi
     fetchWeatherData("Chicago", "weather-description-chicago", "temperature-chicago", "weather-details-chicago");
     fetchWeatherData("Lahore", "weather-description-lahore", "temperature-lahore", "weather-details-lahore");
+    fetchWeatherData("Karachi", "weather-description-karachi", "temperature-karachi", "weather-details-karachi");
 });
