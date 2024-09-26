@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chicago Weather</title>
+  <title>Global Weather Search</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -14,11 +14,40 @@
 </head>
 <body class="bg-gray-100 text-gray-900">
 
+  <!-- Navbar -->
+  <nav class="bg-blue-500 p-4 text-white shadow-lg">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="flex space-x-4">
+        <button class="city-btn" data-city="Chicago">Chicago</button>
+        <button class="city-btn" data-city="Lahore, Pakistan">Lahore, Pakistan</button>
+        <button class="city-btn" data-city="Berlin, Germany">Berlin, Germany</button>
+        <button class="city-btn" data-city="Karachi, Pakistan">Karachi, Pakistan</button>
+      </div>
+      <div class="flex items-center space-x-2">
+        <input 
+          id="search-city" 
+          type="text" 
+          placeholder="Search for a city..." 
+          class="w-full px-4 py-2 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-blue-400"
+        >
+        <button 
+          id="search-btn" 
+          class="bg-white text-blue-500 px-4 py-2 rounded-lg shadow hover:bg-gray-200"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Weather Information -->
   <div class="container mx-auto p-6">
     <div class="max-w-lg mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
-      <div class="p-4 bg-blue-500 text-white">
+      <div class="p-4 bg-blue-500 text-white text-center">
         <h1 class="text-2xl font-bold" id="city-name">Weather in Chicago</h1>
         <p id="condition-text" class="text-sm"></p>
+        <p id="live-date" class="text-sm mt-2"></p>
+        <p id="live-time" class="text-lg font-semibold"></p>
       </div>
 
       <div class="p-6">
@@ -34,6 +63,9 @@
           <p><strong>Humidity:</strong> <span id="humidity"></span>%</p>
           <p><strong>Wind:</strong> <span id="wind-speed"></span> kph</p>
           <p><strong>Feels Like:</strong> <span id="feels-like"></span>°C</p>
+          <p><strong>Pressure:</strong> <span id="pressure"></span> mb</p>
+          <p><strong>Visibility:</strong> <span id="visibility"></span> km</p>
+          <p><strong>UV Index:</strong> <span id="uv-index"></span></p>
         </div>
       </div>
     </div>
